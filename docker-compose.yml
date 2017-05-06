@@ -1,0 +1,20 @@
+version: '2'
+
+services:
+
+  resin-deluge:
+    container_name: resin-deluge
+    build: .
+    ports:
+      - "8080:80"
+      - "53160:53160"
+      - "53160:53160/udp"
+      - "58846:58846"
+    volumes:
+      - /data
+    cap_add:
+      - ALL
+
+networks:
+  default:
+    driver: bridge
